@@ -1,0 +1,31 @@
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Project Cache / Data
+cache/
+
+# IDE / System
+.DS_Store
+.idea/
+.vscode/
+
+# Output files (optional, depending on if you want to keep example outputs)
+*.json
+!company_tickers.json
+# (company_tickers might be in cache, but if it ends up in root, ignore it. 
+# actually, sec.py puts it in cache/. so *.json at root is likely user output)
+
+# Logs
+*.log

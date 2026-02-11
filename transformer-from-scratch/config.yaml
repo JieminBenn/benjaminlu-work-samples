@@ -1,0 +1,117 @@
+
+Name                      : "Name"
+
+###### Tokenization ------------------------------------------------------------
+tokenization:
+  token_type                : "char"       # [char, 1k, 5k, 10k]
+  token_map :
+      'char': 'lib/data/tokenizer_jsons/tokenizer_char.json'
+      '1k'  : 'lib/data/tokenizer_jsons/tokenizer_1000.json'
+      '5k'  : 'lib/data/tokenizer_jsons/tokenizer_5000.json'
+      '10k' : 'lib/data/tokenizer_jsons/tokenizer_10000.json'
+
+###### Dataset -----------------------------------------------------------------
+data:                  
+  root                 : "data_subset/p1_data"
+  train_partition      : "train" 
+  val_partition        : "val"    
+  test_partition       : "test"   
+  subset               : 1.0     
+  batch_size           : 256    
+  NUM_WORKERS          : 2       
+
+###### Network Specs -------------------------------------------------------------
+model:
+  d_model                   : 256
+  d_ff                      : 1024
+  num_layers                : 2
+  num_heads                 : 2
+  dropout                   : 0.0
+  layer_drop_rate           : 0.0
+  weight_tying              : False
+
+###### Common Training Parameters ------------------------------------------------
+training:
+  use_wandb                   : True  
+  wandb_run_id                : "none"  
+  resume                      : False 
+  epochs                      : 20
+  gradient_accumulation_steps : 1
+  wandb_project               : "Set-Project-Name-Here"  
+
+###### Loss ----------------------------------------------------------------------
+loss:  
+  label_smoothing: 0.0
+
+###### Optimizer -----------------------------------------------------------------
+optimizer:
+  name: "adam"  
+  lr: 5.0e-4    
+
+  weight_decay: 0.0001
+
+  param_groups:
+    - name: self_attn
+      patterns: []   
+      lr: 0.0001     
+      layer_decay:
+        enabled: False
+        decay_rate: 0.8
+
+    - name: ffn
+      patterns: []  
+      lr: 0.0001  
+      layer_decay:
+        enabled: False
+        decay_rate: 0.8
+
+  layer_decay:
+    enabled: False
+    decay_rate: 0.75
+
+  sgd:
+    momentum: 0.9
+    nesterov: True
+    dampening: 0
+
+  adam:
+    betas: [0.9, 0.999]
+    eps: 1.0e-8
+    amsgrad: False
+
+  adamw:
+    betas: [0.9, 0.999]
+    eps: 1.0e-8
+    amsgrad: False
+
+###### Scheduler -----------------------------------------------------------------
+scheduler:
+  name: "cosine"   
+
+  reduce_lr:
+    mode: "min"  
+    factor: 0.1  
+    patience: 10  
+    threshold: 0.0001   
+    threshold_mode: "rel"  
+    cooldown: 0   
+    min_lr: 0.0000001  
+    eps: 1.0e-8  
+
+  cosine:
+    T_max: 15  
+    eta_min: 1.0e-8  
+    last_epoch: -1
+
+  cosine_warm:
+    T_0: 4  
+    T_mult: 4  
+    eta_min: 0.0000001  
+    last_epoch: -1
+
+  warmup:
+    enabled: True
+    type: "exponential"  
+    epochs: 5
+    start_factor: 0.1
+    end_factor: 1.0
