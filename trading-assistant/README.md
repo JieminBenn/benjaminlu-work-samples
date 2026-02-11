@@ -1,14 +1,6 @@
 
 # Automated Financial Research Assistant
 
-> [!NOTE]  
-> **Work Sample / Portfolio Project**  
-> This repository serves as a technical demonstration of my backend engineering and data analysis skills. While the financial analysis logic is simplified and the results should be treated as illustrative rather than actionable investment advice, the project highlights my ability to:
-> - Interact with complex external APIs (SEC EDGAR, Google News).
-> - Process and clean unstructured data (XBRL financial statements, news articles).
-> - Implement a modular Python architecture with automated testing and caching.
-> - Build interactive data visualizations using Streamlit.
-
 ## Project Overview
 
 This application is a **News + Fundamentals Research Assistant**. It automates the initial phase of stock research by aggregating quantitative hard data with qualitative sentiment analysis.
