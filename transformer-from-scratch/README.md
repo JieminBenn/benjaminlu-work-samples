@@ -1,6 +1,6 @@
 # Transformer Implementation: Deep Learning Systems Work Sample
 
-This repository contains a from-scratch implementation of Transformer architectures, designed to demonstrate a deep understanding of sequence modeling, attention mechanisms, and end-to-end deep learning pipelines.
+This project implements Transformer architectures from scratch as part of my exploration of sequence modeling and deep learning systems. The goal was to understand and build the core components — attention, masking, positional encoding, and training logic — without relying on high-level abstraction libraries.
 
 The codebase features a custom library, `lib`, which houses the core model definitions for both **Causal Language Models (CLM)** and **Automatic Speech Recognition (ASR)**. The accompanying notebook, `Train.ipynb`, serves as the entry point for training and evaluating the Causal Language Model.
 
