@@ -12,7 +12,7 @@ tokenization:
 
 ###### Dataset -----------------------------------------------------------------
 data:                  
-  root                 : "data_subset/p1_data"
+  root                 : "data/p1_data"
   train_partition      : "train" 
   val_partition        : "val"    
   test_partition       : "test"   
@@ -32,7 +32,7 @@ model:
 
 ###### Common Training Parameters ------------------------------------------------
 training:
-  use_wandb                   : True  
+  use_wandb                   : False  
   wandb_run_id                : "none"  
   resume                      : False 
   epochs                      : 20
