@@ -1,6 +1,6 @@
 # 64-bit Segregated Free List Allocator
 
-A 64-bit dynamic memory allocator implemented in C. This project implements a comprehensive memory management system featuring prompt coalescing, segregated free lists, and efficient block splitting.
+A 64-bit dynamic memory allocator implemented in C as part of a systems programming project. The allocator supports prompt coalescing, segregated free lists, and block splitting to balance throughput and memory utilization.
 
 ## Architecture
 
